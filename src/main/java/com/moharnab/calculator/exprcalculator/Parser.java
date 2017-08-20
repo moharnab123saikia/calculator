@@ -39,7 +39,10 @@ public class Parser {
       int n = Integer.parseInt(expression);
       return new ParseTreeNode(n);
     } catch (final NumberFormatException e) {
-      
+      // NaN
+    }
+    if (expression.matches("[a-zA-Z]+")) {
+      return new ParseTreeNode(expression);
     }
     if (expression.startsWith("add")) {
       return parseTwo("add", expression);
@@ -47,11 +50,13 @@ public class Parser {
       return parseTwo("mult", expression);
     } else if (expression.startsWith("div")) {
       return parseTwo("div", expression);
-    }else if (expression.startsWith("sub")) {
+    } else if (expression.startsWith("sub")) {
       return parseTwo("sub", expression);
+    }else if (expression.startsWith("let")) {
+      return parseThree("let", expression);
     }
 
-    throw new ParseException("Invalid operator used - only add, mult, div and sub allowed", 0);
+    throw new ParseException("Invalid operator used - only add, mult, div and let allowed", 0);
   }
 
   static private ParseTreeNode parseTwo(String op, String expression) throws Exception {
@@ -61,5 +66,17 @@ public class Parser {
     ParseTreeNode first = args.get(0);
     ParseTreeNode second = args.get(1);
     return new ParseTreeNode(op, first, second);
+  }
+
+  static private ParseTreeNode parseThree(String op, String expression) throws Exception {
+    List<ParseTreeNode> args = scanArguments(expression, op.length(), expression.length());
+
+    if (args.size() != 3)
+      throw new ParseException("Invalid number of arguments for " + op + " operator", 0);
+    ParseTreeNode first = args.get(0);
+    ParseTreeNode second = args.get(1);
+    ParseTreeNode third = args.get(2);
+    return new ParseTreeNode(op, first.variable, second, third);
+
   }
 }

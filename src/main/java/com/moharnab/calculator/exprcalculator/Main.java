@@ -3,8 +3,6 @@ package com.moharnab.calculator.exprcalculator;
 import java.text.ParseException;
 import java.util.logging.Logger;
 
-
-
 public class Main {
   // Get global logger instance
   private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -22,7 +20,7 @@ public class Main {
         CustomLogger.setup("info");
         LOGGER.info("Default log level set: INFO");
       }
-      LOGGER.info("Expression: " + calc.evaluate(args[0]));
+      LOGGER.info("Expression result: " + args[0] + " = " + calc.evaluate(args[0]));
     } catch (ParseException e) {
       LOGGER.severe("Invalid expression passed: " + args[0]);
       LOGGER.severe(e.getMessage());

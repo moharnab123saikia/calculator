@@ -5,9 +5,10 @@ import java.text.ParseException;
 
 
 public class Calculator {
-  Integer evaluate(String expression) throws ParseException{
-    //Parser parser = new Parser();
+  Integer evaluate(String expression) throws Exception{
+    Parser parser = new Parser();
     String trimmedExpression = expression.replaceAll("\\s+", "");
-    return -1;
+    ParseTreeNode expressionNode = parser.parse(trimmedExpression);
+    return expressionNode.evaluate();
   }
 }

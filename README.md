@@ -4,7 +4,7 @@
 This is a calculator program in Java that evaluates expressions in a very simple integer expression language. The program takes an input on the command line, computes the result, and prints it to the console.  For example:
 # Usage
 ```
-% java calculator.Main add(2, 2)
+% java com.moharnab.calculator.Main add(2, 2)
 4
 ```
 
@@ -33,8 +33,7 @@ As with arithmetic functions, the value expression and the expression where the 
 
 The application supports 3 levels of verbosity: INFO, ERROR, and DEBUG.  The verbosity to be set via a command-line option passed as the second parameter. If no parameter is passed the logging level is set to INFO. 
 ```
-% java calculator.Main add(2, 2) debug
-4
+% java com.moharnab.calculator.Main add(2, 2) debug
 ```
 
 

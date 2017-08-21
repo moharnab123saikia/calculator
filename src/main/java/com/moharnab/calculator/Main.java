@@ -13,7 +13,6 @@ public class Main {
       // Set up logging level
       if (args.length == 2) {
         CustomLogger.setup(args[1]);
-        LOGGER.config("Custom log level: " + args[1]);
       }
       if (args.length == 1) { //Default logging level if 
         CustomLogger.setup("info");
@@ -21,7 +20,6 @@ public class Main {
       }
       Integer result = calc.evaluate(args[0]);
       System.out.println(result);
-      //LOGGER.info("Expression result: " + args[0] + " = " + result);
     } catch (ParseException e) {
       LOGGER.severe("Invalid expression passed: " + args[0]);
       LOGGER.severe(e.getMessage());

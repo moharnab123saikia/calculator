@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.moharnab</groupId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>exprcalculator</name>
+	<name>Expression Calculator</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -24,4 +24,5 @@
 		</dependency>
 	</dependencies>
 	<artifactId>calculator</artifactId>
+	<description>This is a calculator program in Java that evaluates expressions in a very simple integer expression language. The program takes an input on the command line, computes the result, and prints it to the console.</description>
 </project>

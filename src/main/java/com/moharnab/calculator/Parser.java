@@ -3,9 +3,14 @@ package com.moharnab.calculator;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Parser {
+
+  /** Get global logger instance **/
+  final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
   /**
    * Gets the expression arguments.
@@ -40,6 +45,7 @@ public class Parser {
     }
     if (stack != 0)
       throw new ParseException("Invalid expression format.", 0);
+    LOGGER.log(Level.CONFIG, "Parsed args successfully ", 0);
     return args;
   }
 
@@ -48,8 +54,8 @@ public class Parser {
    *
    * @param expression the expression string to parse
    * @return the ParseTreeNode
-   * @throws ParseException the parse exception for invalid expression 
-   * */
+   * @throws ParseException the parse exception for invalid expression
+   */
   static ParseTreeNode parse(String expression) throws ParseException {
     try {
       int n = Integer.parseInt(expression);
@@ -72,7 +78,8 @@ public class Parser {
       return parseLetExpression("let", expression);
     }
 
-    throw new ParseException("Invalid operator used - only add, sub, mult, div and let allowed.", 0);
+    throw new ParseException("Invalid operator used - only add, sub, mult, div and let allowed.",
+        0);
   }
 
   /**
@@ -81,7 +88,7 @@ public class Parser {
    * @param operator the operator which is one of add, sub, mult, div
    * @param expression the expression string
    * @return the ParseTreeNode for the expression
-   * @throws ParseException the parse exception for invalid expression 
+   * @throws ParseException the parse exception for invalid expression
    */
   static private ParseTreeNode parseGeneralExpression(String operator, String expression)
       throws ParseException {
@@ -100,7 +107,7 @@ public class Parser {
    * @param operator the operator which is 'let'
    * @param expression the expression string
    * @return the ParseTreeNode for the expression
-   * @throws ParseException the parse exception for invalid expression 
+   * @throws ParseException the parse exception for invalid expression
    */
   static private ParseTreeNode parseLetExpression(String operator, String expression)
       throws ParseException {

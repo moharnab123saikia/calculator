@@ -1,14 +1,10 @@
-package com.moharnab.calculator;
-
-import java.math.BigInteger;
+ package com.moharnab.calculator;
 
 import com.moharnab.calculator.Calculator;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
-import static junit.framework.Assert.assertEquals;
 
 /**
  * Unit test for Calculator.

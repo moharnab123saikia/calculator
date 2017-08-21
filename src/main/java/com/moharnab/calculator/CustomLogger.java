@@ -1,10 +1,18 @@
-package com.moharnab.calculator.exprcalculator;
+package com.moharnab.calculator;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CustomLogger {
-  static public void setup(String logLevel) {
+  
+  /**
+   * Sets the up logging level.
+   *
+   * @param logLevel the log level to configure.
+   * @throws IllegalArgumentException Throws error if invalid log level is passed.
+   * 			Supported levels are: info, error, debug
+   */
+  static public void setup(String logLevel) throws IllegalArgumentException{
     // get the global logger to configure it
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     // set global log level as option passed via console

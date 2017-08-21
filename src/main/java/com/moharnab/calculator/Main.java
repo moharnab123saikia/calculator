@@ -1,4 +1,4 @@
-package com.moharnab.calculator.exprcalculator;
+package com.moharnab.calculator;
 
 import java.text.ParseException;
 import java.util.logging.Logger;
@@ -11,16 +11,17 @@ public class Main {
     Calculator calc = new Calculator();
     try {
       // Set up logging level
-      LOGGER.info("Arguments: " + args.length);
       if (args.length == 2) {
         CustomLogger.setup(args[1]);
         LOGGER.config("Custom log level: " + args[1]);
       }
-      if (args.length == 1) {
+      if (args.length == 1) { //Default logging level if 
         CustomLogger.setup("info");
         LOGGER.info("Default log level set: INFO");
       }
-      LOGGER.info("Expression result: " + args[0] + " = " + calc.evaluate(args[0]));
+      Integer result = calc.evaluate(args[0]);
+      System.out.println(result);
+      //LOGGER.info("Expression result: " + args[0] + " = " + result);
     } catch (ParseException e) {
       LOGGER.severe("Invalid expression passed: " + args[0]);
       LOGGER.severe(e.getMessage());

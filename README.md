@@ -1,8 +1,21 @@
 # Simple Java Expression Evaluator
 [![Build Status](https://travis-ci.org/moharnab123saikia/calculator.svg?branch=master)](https://travis-ci.org/moharnab123saikia/calculator)
 
-This is a calculator program in Java that evaluates expressions in a very simple integer expression language. The program takes an input on the command line, computes the result, and prints it to the console.  For example:
+This is a calculator program in Java that evaluates expressions in a very simple integer expression language. The program takes an input on the command line, computes the result, and prints it to the console.
 # Usage
+
+From inside the project folder:
+
+To run the tests:
+  ```
+$> mvn test
+  ```
+To run the code:
+```
+$> mvn exec:java -Dexec.args="'add(1, 2)'" -Dexec.mainClass="com.moharnab.calculator.Main"
+```
+or from inside the src folder run:
+
 ```
 % java com.moharnab.calculator.Main add(2, 2)
 4
@@ -32,9 +45,18 @@ As with arithmetic functions, the value expression and the expression where the 
 ## Logging
 
 The application supports 3 levels of verbosity: INFO, ERROR, and DEBUG.  The verbosity to be set via a command-line option passed as the second parameter. If no parameter is passed the logging level is set to INFO. 
+
+```
+$> mvn exec:java -Dexec.args="'add(1, 2)'" -Dexec.mainClass="com.moharnab.calculator.Main"
+```
 ```
 % java com.moharnab.calculator.Main add(2, 2) debug
 ```
+## Assumptions
+
+- The default log level is ERROR
+- The output is considered to be Integer
+- Java 7 is used while testing
 
 
 
